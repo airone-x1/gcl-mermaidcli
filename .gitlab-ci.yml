@@ -1,0 +1,12 @@
+marmaid_svg:
+  image:
+    name: docker.io/minlag/mermaid-cli
+    entrypoint: [""]
+  script:
+    - MMDC="/home/mermaidcli/node_modules/.bin/mmdc -p /puppeteer-config.json"
+    - $MMDC -i docs/index.md -o docs/index2.md
+  artifacts:
+   paths:
+      - docs/
+   expire_in: "30 mins"
+
